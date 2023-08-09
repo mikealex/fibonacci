@@ -6,7 +6,7 @@ import timeit
 
 
 MAX_FIB = 10000000
-NUM_ITERATIONS = 1000
+NUM_ITERATIONS = 1000000
 
 
 def fib_generator() -> int:
@@ -34,14 +34,14 @@ def generate_fibs():
     function
     """
     fib_gen = fib_generator()
-    for fib in fib_gen:
-        print(fib)
+    for _ in fib_gen:
+        pass
 
 
 if __name__ == "__main__":
-    # pylint: disable=unnecessary-lambda
     print(
         "Fastest execution: ",
-        timeit.timeit(lambda: generate_fibs(), setup="pass", number=NUM_ITERATIONS),
+        timeit.timeit(
+            "generate_fibs()", setup="pass", number=NUM_ITERATIONS, globals=globals()
+        ),
     )
-    # pylint: enable=unnecessary-lambda
