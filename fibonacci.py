@@ -40,7 +40,7 @@ def generate_fibs():
 
 if __name__ == "__main__":
     print(
-        "Fastest execution: ",
+        "timeit: ",
         timeit.timeit(
             "generate_fibs()", setup="pass", number=NUM_ITERATIONS, globals=globals()
         ),
